@@ -6,10 +6,13 @@ import counterReducer from "./counterReducer";
 import { createStore, applyMiddleware } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import logger from "redux-logger";
+import thunk from "redux-thunk";
+import axios from "axios";
+import User from "./User";
 
 const store = createStore(
 	counterReducer,
-	composeWithDevTools(applyMiddleware(logger))
+	composeWithDevTools(applyMiddleware(logger, thunk))
 );
 
 class App extends Component {
@@ -20,6 +23,7 @@ class App extends Component {
 					<h1>Hello CodeSandbox</h1>
 					<h2>Start editing to see some magic happen!</h2>
 					<Counter />
+					<User />
 				</div>
 			</Provider>
 		);
