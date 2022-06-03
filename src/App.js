@@ -4,8 +4,9 @@ import Counter from "./Counter";
 import { Provider } from "react-redux";
 import counterReducer from "./counterReducer";
 import { createStore } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
 
-const store = createStore(counterReducer);
+const store = createStore(counterReducer, composeWithDevTools());
 
 class App extends Component {
   render() {
